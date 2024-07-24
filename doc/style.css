@@ -1,0 +1,84 @@
+body {
+    background-image: url(./img/bg.png);
+    background-repeat: repeat;
+}
+
+#panel {
+    background-color: white;
+    border-color: rgba(0, 0, 0, 0.25);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    align-self: center;
+    padding: 4px;
+    width: fit-content;
+}
+
+.window {
+    background-color: white;
+    border-color: rgba(0, 0, 0, 0.25);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    align-self: center;
+    padding: 4px;
+    width: 100%;
+}
+
+.header {
+    margin: auto;
+    width: 35%;
+}
+
+.body {
+    margin: auto;
+    width: 50%;
+}
+
+.toc_item {
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+.toc {
+    float: left;
+    position: fixed;
+    width: 125px;
+    margin-top: 25px;
+}
+
+.toc a{
+    color: blue;
+    text-decoration: none;
+}
+
+.toc a:hover{
+    text-decoration: underline;
+}
+
+.content {
+    float: left;
+    margin-left: 125px;
+    width: 75%;
+}
+
+.copyright {
+    font-size: small;
+    text-align: center;
+}
+
+.version {
+    font-size: small;
+    text-align: center;
+}
+
+iframe {
+    border: none;
+    width: 75vh;
+    height: 75vh;
+}
+
+.test {
+    display: block;
+    height: 250px;
+}

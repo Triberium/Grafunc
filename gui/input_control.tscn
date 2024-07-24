@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://82nukk7e5ht3"]
+
+[ext_resource type="Script" path="res://gui/input_control.gd" id="1_5sif0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2da7c"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7by3f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.25098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87xh7"]
+bg_color = Color(0.838897, 0.838897, 0.838897, 1)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.25098)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4esqq"]
+content_margin_left = 2.0
+content_margin_top = 0.0
+content_margin_right = 2.0
+bg_color = Color(0.856067, 0.856067, 0.856067, 1)
+border_color = Color(0, 0, 0, 0.25098)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_ek500"]
+font_color = Color(0.255659, 0.255659, 0.255659, 1)
+
+[node name="InputControl" type="PanelContainer"]
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2da7c")
+script = ExtResource("1_5sif0")
+
+[node name="Horizontal" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Options" type="MenuButton" parent="Horizontal"]
+layout_mode = 2
+text = " ⋮ "
+item_count = 1
+popup/item_0/text = "Delete"
+popup/item_0/id = 0
+
+[node name="LineEdit" type="LineEdit" parent="Horizontal"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7by3f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_87xh7")
+placeholder_text = "Empty"
+context_menu_enabled = false
+
+[node name="Equal" type="Label" parent="Horizontal"]
+visible = false
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_4esqq")
+text = "= x"
+label_settings = SubResource("LabelSettings_ek500")
+vertical_alignment = 1
+
+[connection signal="text_changed" from="Horizontal/LineEdit" to="." method="_on_line_edit_text_changed"]

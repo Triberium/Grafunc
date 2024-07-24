@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grafunc - Limitations</title>
+    <link rel="stylesheet" href="style_inner.css">
+    </head>
+    <body class="inner">
+        <h2 id="limitations">Limitations</h2>
+        <p>
+            The following are limitations for this version:
+        </p>
+        <dl>
+            <dt>&#x2022; Graphing<sup> *</sup></dt>
+            <dd>Due to this project being in its very early stages, the main graphing feature is yet to be implemented, but is top priority.
+            </dd>
+            
+            <dt>&#x2022; Limited operations<sup> *</sup></dt>
+            <dd>Currently, the program only calculates basic arithmetic and exponentiation. Functions like <code>sin</code>, <code>cos</code>, <code>tan</code>, etc are planned to be implemented.
+            </dd>
+            
+            <dt>&#x2022; Consecutive unary operations<sup> *</sup></dt>
+            <dd>Any consecutive unary operations, <var>+</var> or <var>-</var>, in front of a number will be parsed incorrectly.<br />
+                For example <code>1 + -1</code> will be parsed incorrectly since the consecutive <var>+</var> and <var>-</var> will be treated as single operators and not linked to the number following it.<br />
+                To remedy this, for now, the above expression should be input as <code>1 + (-1)</code>
+            </dd>
+
+            <dt>&#x2022; Floating point precision</dt>
+            <dd>Due to floating point errors, numbers with a large combined quantity of whole and fractional digits will not be properly calculated or flat out ignored.<br />
+                There are no plans to fix or implement a better method for this.
+            </dd>
+        </dl>
+        <p><sup>*</sup> <small>Planned to be added, fixed, or modified.</small></p>
+    </body>
+</html>

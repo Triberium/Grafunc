@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Grafunc"
+config/description="A simple graphing calculator"
+config/version="0.0.1"
+run/main_scene="res://scene/main.tscn"
+config/use_custom_user_dir=true
+config/features=PackedStringArray("4.2")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="res://texture/splash.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://texture/icon_simple.svg"
+
+[autoload]
+
+GUI="*res://gui/main.gd"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
+[filesystem]
+
+import/blender/enabled=false
+
+[gui]
+
+theme/custom="res://resource/theme/default.tres"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(1, 1, 1, 1)

@@ -1,0 +1,163 @@
+[gd_scene load_steps=11 format=3 uid="uid://62jhhor4w6oj"]
+
+[ext_resource type="Script" path="res://gui/about.gd" id="1_6prih"]
+[ext_resource type="Texture2D" uid="uid://dqdfrjwf2qgeo" path="res://texture/icon.svg" id="1_h4nym"]
+[ext_resource type="FontFile" uid="uid://bc2gdxjjce07h" path="res://thirdparty/font/Jost-Medium.ttf" id="3_b2h2t"]
+[ext_resource type="StyleBox" uid="uid://egmmvjum1nyw" path="res://resource/stylebox/credit_label.tres" id="4_36mbt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8fma"]
+line_spacing = 0.0
+font = ExtResource("3_b2h2t")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gv5dl"]
+line_spacing = 0.0
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cunjy"]
+font = ExtResource("3_b2h2t")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i1p5r"]
+line_spacing = 0.0
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_snxrd"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bdd34"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="About" type="CanvasLayer"]
+script = ExtResource("1_6prih")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Window" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Window"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Window/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="Window/VBox/Header"]
+layout_mode = 2
+texture = ExtResource("1_h4nym")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Info" type="VBoxContainer" parent="Window/VBox/Header"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NameVersion" type="Label" parent="Window/VBox/Header/Info"]
+layout_mode = 2
+text = "Grafunc vx.x.x"
+label_settings = SubResource("LabelSettings_o8fma")
+
+[node name="CopyrightA" type="Label" parent="Window/VBox/Header/Info"]
+layout_mode = 2
+text = "© 2024-present Triberium"
+label_settings = SubResource("LabelSettings_gv5dl")
+
+[node name="Spacer" type="Control" parent="Window/VBox/Header/Info"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Tabs" type="TabContainer" parent="Window/VBox"]
+custom_minimum_size = Vector2(384, 250)
+layout_mode = 2
+
+[node name="Credits" type="ScrollContainer" parent="Window/VBox/Tabs"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="Window/VBox/Tabs/Credits"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="CreatorTitle" type="Label" parent="Window/VBox/Tabs/Credits/VBox"]
+layout_mode = 2
+text = "Creator and Developer"
+label_settings = SubResource("LabelSettings_cunjy")
+
+[node name="Creator" type="Label" parent="Window/VBox/Tabs/Credits/VBox"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_36mbt")
+text = "Triberium"
+
+[node name="License" type="ScrollContainer" parent="Window/VBox/Tabs"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Content" type="Label" parent="Window/VBox/Tabs/License"]
+custom_minimum_size = Vector2(368, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_i1p5r")
+autowrap_mode = 2
+
+[node name="3rd Party Licenses" type="VBoxContainer" parent="Window/VBox/Tabs"]
+visible = false
+layout_mode = 2
+
+[node name="Selection" type="HBoxContainer" parent="Window/VBox/Tabs/3rd Party Licenses"]
+layout_mode = 2
+
+[node name="Select" type="Label" parent="Window/VBox/Tabs/3rd Party Licenses/Selection"]
+layout_mode = 2
+text = "Component:"
+label_settings = SubResource("LabelSettings_snxrd")
+
+[node name="Options" type="OptionButton" parent="Window/VBox/Tabs/3rd Party Licenses/Selection"]
+layout_mode = 2
+item_count = 1
+popup/item_0/text = "Jost (Font)"
+popup/item_0/id = 0
+
+[node name="Data" type="ScrollContainer" parent="Window/VBox/Tabs/3rd Party Licenses"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Content" type="Label" parent="Window/VBox/Tabs/3rd Party Licenses/Data"]
+custom_minimum_size = Vector2(368, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_bdd34")
+autowrap_mode = 2
+
+[node name="Close" type="Button" parent="Window/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close"
+
+[connection signal="item_selected" from="Window/VBox/Tabs/3rd Party Licenses/Selection/Options" to="." method="_on_options_item_selected"]
+[connection signal="pressed" from="Window/VBox/Close" to="." method="_on_close_pressed"]
