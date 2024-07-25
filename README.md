@@ -13,4 +13,4 @@ This project is provided for free and open source under the  [GPL-3.0 license](L
 
 ## Documentation
 
-Documentation is currently being worked on. Its available in the [Documentation](doc/index.html) folder as a set of HTML files that can be opened in any browser.
+Documentation can be found on the [Website](https://docs.grafunc.com). The files can also be found under the [docs](docs/index.html) folder as a set of HTML files that can be opened in any browser.
