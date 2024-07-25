@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Grafunc"
 config/description="A simple graphing calculator"
-config/version="0.0.1"
+config/version="0.0.2"
 run/main_scene="res://scene/main.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.2")

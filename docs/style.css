@@ -3,6 +3,19 @@ body {
     background-repeat: repeat;
 }
 
+#toc_panel {
+    background-color: white;
+    border-color: rgba(0, 0, 0, 0.25);
+    border-width: 1px;
+    border-right-width: 0px;
+    border-style: solid;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    align-self: center;
+    padding: 4px;
+    width: auto;
+}
+
 #panel {
     background-color: white;
     border-color: rgba(0, 0, 0, 0.25);
@@ -11,7 +24,7 @@ body {
     border-radius: 5px;
     align-self: center;
     padding: 4px;
-    width: fit-content;
+    width: auto;
 }
 
 .window {
@@ -22,7 +35,6 @@ body {
     border-radius: 5px;
     align-self: center;
     padding: 4px;
-    width: 100%;
 }
 
 .header {
@@ -59,7 +71,7 @@ body {
 .content {
     float: left;
     margin-left: 125px;
-    width: 75%;
+    width: 100%;
 }
 
 .copyright {
@@ -74,7 +86,7 @@ body {
 
 iframe {
     border: none;
-    width: 75vh;
+    width: 100%;
     height: 75vh;
 }
 

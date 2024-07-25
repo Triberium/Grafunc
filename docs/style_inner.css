@@ -2,6 +2,7 @@ body {
     background-image: none;
     height: auto;
     overflow: auto;
+    width: auto;
 }
 
 body a{
