@@ -15,3 +15,5 @@ func _on_id_pressed(id: int) -> void:
 			GUI.display(GUI.ID.ABOUT)
 		1:
 			OS.shell_open("https://github.com/Triberium/Grafunc")
+		2:
+			OS.shell_open("https://docs.grafunc.com")
