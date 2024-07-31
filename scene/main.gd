@@ -1,32 +1,35 @@
 extends Node2D
 
+@onready var grid: Node2D = preload("res://scene/grid.gd").new()
+@onready var drawings: CanvasGroup = CanvasGroup.new()
+@onready var camera: Camera2D = Camera2D.new()
+
 
 func _ready() -> void:
+	_setup_base()
+	run_tests()
+
+
+func run_tests() -> void:
 	var tests := [
 		"(1 + 1)^(4)",
 		"12 / (2 ^ 2)",
 		"((12.0 + 10) * 4) / (10 - (16/2))"
 	]
 	for test: String in tests:
+		var sya := SYAlgo.new()
+		sya.input = Token.tokenize(test)
+		sya.parse()
 		print(test)
-		run_test(test)
+		print("\tRPN: ", sya.output.get_values())
+		print("\tResult: ", sya.output.solve(), "\n")
 
-func _draw() -> void:
-	_draw_axes()
 
-func _draw_axes() -> void:
-	## Horizontal axis
-	draw_line(Vector2(-320, 0), Vector2(320, 0), Color.BLACK, 1.0)
-	## Vertical axis
-	draw_line(Vector2(0, -320), Vector2(0, 320), Color.BLACK, 1.0)
-
-func run_test(input: String) -> void:
-	var sya := SYAlgo.new()
-	sya.input = Token.tokenize(input)
-	sya.parse()
+func _setup_base() -> void:
+	grid.name = "Grid"
+	add_child(grid)
+	drawings.name = "Drawings"
+	add_child(drawings)
+	camera.name = "Camera"
+	add_child(camera)
 	
-	var queue := []
-	for output: Token in sya.output.queue:
-		queue.append(str(output.value))
-	print("\tRPN: ", queue)
-	print("\tResult: ", sya.output.solve(), "\n")

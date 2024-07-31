@@ -8,6 +8,17 @@ class_name RPN extends RefCounted
 var queue: Array[Token]
 
 
+func _operate(a: float, b: float, operator: StringName) -> float:
+	var value: float = 0
+	match operator:
+		&"^": value = pow(a, b)
+		&"*": value = a * b
+		&"/": value = a / b
+		&"+": value = a + b
+		&"-": value = a - b
+	return value
+
+
 ## Solves the queue and returns a number upon solving. Returns NAN if the queue was invalid.
 func solve() -> float:
 	var stack := queue.duplicate()
@@ -35,12 +46,9 @@ func solve() -> float:
 	return NAN
 
 
-func _operate(a: float, b: float, operator: StringName) -> float:
-	var value: float = 0
-	match operator:
-		&"^": value = pow(a, b)
-		&"*": value = a * b
-		&"/": value = a / b
-		&"+": value = a + b
-		&"-": value = a - b
-	return value
+func get_values() -> Array[String]:
+	var output: Array[String] = []
+	for token: Token in queue:
+		output.append(str(token.value))
+	
+	return output

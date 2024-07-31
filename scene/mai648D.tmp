@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbxf7un310qmk"]
+
+[ext_resource type="Script" path="res://scene/main.gd" id="1_wgf5y"]
+[ext_resource type="Script" path="res://scene/grid.gd" id="2_jcj2g"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_wgf5y")
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource("2_jcj2g")
+
+[node name="Drawings" type="CanvasGroup" parent="."]
+
+[node name="Camera" type="Camera2D" parent="."]
