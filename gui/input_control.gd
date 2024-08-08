@@ -15,21 +15,27 @@ func _ready() -> void:
 
 
 func _on_line_edit_text_changed(new_text: String) -> void:
-	var sya := SYAlgo.new()
-	sya.input = Token.tokenize(new_text)
-	sya.parse()
-	var output := sya.output.solve()
-	var output_string := ""
-	if is_nan(output) or sya.output.queue.size() < 2:
-		equal.hide()
-		return
-	
-	equal.show()
-	if output > 999999999999:
-		output_string = String.num_scientific(output)
-	else:
-		output_string = str(output)
-	equal.text = expression_format % str(output_string)
+	var split_input := new_text.split("=", true)
+	print("Splits: ", split_input.size())
+	match split_input.size():
+		1:
+			var sya := SYAlgo.new()
+			sya.input = Token.tokenize(new_text)
+			sya.parse()
+			var output := sya.output.solve()
+			var output_string := ""
+			if is_nan(output) or sya.output.queue.size() < 2:
+				equal.hide()
+				return
+			
+			equal.show()
+			if output > 999999999999:
+				output_string = String.num_scientific(output)
+			else:
+				output_string = str(output)
+			equal.text = expression_format % str(output_string)
+		2:
+			equal.hide()
 
 
 func _on_id_pressed(id: int) -> void:

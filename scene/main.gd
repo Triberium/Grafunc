@@ -2,13 +2,18 @@ extends Node2D
 
 @onready var grid: Node2D = preload("res://scene/grid.gd").new()
 @onready var drawings: CanvasGroup = CanvasGroup.new()
-@onready var camera: Camera2D = Camera2D.new()
+@onready var camera: Camera2D = preload("res://scene/camera.gd").new()
 
 
 func _ready() -> void:
+	
+	get_viewport().size_changed.connect(_viewport_size_changed)
 	_setup_base()
 	run_tests()
 
+
+func _viewport_size_changed() -> void:
+	pass
 
 func run_tests() -> void:
 	var tests := [
@@ -32,4 +37,5 @@ func _setup_base() -> void:
 	add_child(drawings)
 	camera.name = "Camera"
 	add_child(camera)
+	camera.moved.connect(grid._camera_moved)
 	
