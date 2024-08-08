@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 	get_viewport().size_changed.connect(_viewport_size_changed)
 	_setup_base()
-	run_tests()
+	#run_tests()
 
 
 func _viewport_size_changed() -> void:

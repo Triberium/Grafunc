@@ -26,7 +26,7 @@ func _draw() -> void:
 func _draw_grid() -> void:
 	var rect := get_viewport_rect().size
 	var verticals := floori(rect.x / SPACING) + 1
-	var horizontals := floori(rect.x / SPACING) + 1
+	var horizontals := floori(rect.y / SPACING) + 1
 	var half := _get_half_viewport()
 	var margins := _get_margins()
 	var min_size := camera_position - half
